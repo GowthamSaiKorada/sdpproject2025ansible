@@ -13,9 +13,8 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                // Allow requests from the frontend's origin
-                registry.addMapping("/api/**")
-                        .allowedOrigins("http://localhost:4000") // Frontend URL
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:30027")  // <-- Correct for Kubernetes
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
