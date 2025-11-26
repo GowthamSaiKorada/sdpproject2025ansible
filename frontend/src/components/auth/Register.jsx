@@ -208,15 +208,16 @@ const Register = () => {
     
     setLoading(true);
     try {
-      await axios.post(`${import.meta.env.VITE_APP_API_URL}/auth/register`, {
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
-        age: parseInt(formData.age),
-        adharCard: formData.adharCard,
-        address: formData.address,
-        phone: formData.phone
-      });
+      await api.post('/auth/register', {
+  username: formData.username,
+  email: formData.email,
+  password: formData.password,
+  age: parseInt(formData.age),
+  adharCard: formData.adharCard,
+  address: formData.address,
+  phone: formData.phone
+});
+
       
       Swal.fire({
         icon: 'success',
